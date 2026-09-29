@@ -1,0 +1,4 @@
+✓ Python 3.9
+✗ CVAT chưa kết nối được: HTTP Error 403: Forbidden
+✓ Git không track .env
+! Chưa có gh; tự kiểm tra repo bài nộp là PUBLIC trên GitHub
