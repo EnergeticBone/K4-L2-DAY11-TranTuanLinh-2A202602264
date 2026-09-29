@@ -1,0 +1,7 @@
+# Guideline patch
+
+- **Rule mới đề xuất:** Bổ sung quy tắc **R04b — Phân định Mini-Truck và ThreeWheeler chở hàng**: Mọi phương tiện có kết cấu cabin điều khiển tách biệt với thùng chở hàng (thùng hở kim loại hoặc thùng khung bạt), trang bị từ 4 bánh xe trở lên (đặc biệt có cụm bánh sau chịu tải) bắt buộc phân loại là `Truck`, bất kể chiều dài cơ sở ngắn hay hình thái mũi xe tròn. Chỉ những phương tiện 3 bánh cơ giới (auto-rickshaw, e-rickshaw chở hàng với 1 bánh trước dẫn hướng) mới phân loại là `ThreeWheeler`. Ở vùng rìa méo quang học ($r/R \ge 0.6$), annotator phải ưu tiên nhận diện khung thùng hàng và chiều cao thành xe để quyết định, không suy đoán theo mũi cabin bị biến dạng.
+- **Áp dụng cho:** Class `Truck` và `ThreeWheeler`, áp dụng tại mọi zone (đặc biệt zone `mid` và `edge`) trên các camera fisheye góc rộng.
+- **Vì sao luật hiện tại (`docs/02-rules-vi.md`) không đủ:** Quy tắc R04 trong `v1.0.0` chỉ ghi vắn tắt *"xe ba bánh chở người/hàng → ThreeWheeler; xe bán tải nhỏ hoặc máy kéo → Truck"* mà không có tiêu chuẩn phân biệt kết cấu thùng chở hàng. Trên thực tế giao thông ADASIND, các dòng xe tải nhẹ đô thị mini-truck có kích thước tương đồng với xe ba bánh chở hàng, khi nằm sát mép cong fisheye dễ gây ra tranh cãi và nhầm lẫn nhãn (điển hình như ca `L4+R2` tại frame `adasind_102750.jpg`).
+- **`rules_version` mới:** `v1.1.0` (bump phiên bản từ `v1.0.0`).
+- **Hiệu lực từ:** Vòng **rework** (P5) và bắt buộc cho các đợt rà soát gold set sau này.

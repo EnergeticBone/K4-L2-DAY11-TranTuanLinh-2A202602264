@@ -1,1 +1,6 @@
 id,date,question,decision,rationale,status
+D01,2026-09-29,Phân định xe tải nhỏ ở mép trái frame 102750 (L4+R2) là ThreeWheeler hay Truck?,Quyết định đổi nhãn sang Truck theo R04; đồng thời đề xuất patch R04b,Xe có 4 bánh và thùng chở hàng riêng biệt khớp class Truck; cần chuẩn hóa quy tắc,escalated
+D02,2026-09-29,Xử lý box ThreeWheeler nhỏ ở xa phía trước frame 102750 (L2) đo được 46px nhưng Reference không có?,Xóa box khỏi bản rework để tuân thủ ngưỡng thực tế R01,Thực tế chiều cao vật thể gốc chỉ khoảng 35px dưới ngưỡng H=40; box vẽ lỏng gây SPURIOUS,resolved
+D03,2026-09-29,Bổ sung xe tải ở trung tâm frame 102750 (R5+M8) và xe máy mép rìa frame 082170 (R5)?,Vẽ bổ sung đầy đủ 2 box này trong annotations-v2.xml,Cả 2 đối tượng đều in-scope cao trên 40px nhưng annotator bỏ sót ở vòng r1_craft,resolved
+D04,2026-09-29,Đồng bộ cờ hệ thống CVAT occluded với attribute occluded của Bike ở frame 069450 và 082170?,Giữ nguyên attribute occluded=false và truncated=true theo R05,Xe bị cắt bởi biên ảnh chứ không bị vật khác che khuất; hai attribute độc lập,accepted
+D05,2026-09-29,Xử lý 20 ca bất đồng Model AI (8 ca LR_noM và 12 ca M_only)?,Giữ nguyên nhãn người vẽ; chuyển backlog cho AI team; không thêm box ảo vào ground truth,Mô hình YOLO26m bị domain shift nặng trên camera fisheye; lỗi thuộc về model AI,accepted

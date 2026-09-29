@@ -1,18 +1,24 @@
 # Đề xuất gold set theo camera — tình huống giả lập
 
-**Đầu bài:** 50.000 frame từ bốn camera SVM, ngân sách chọn 200 frame để review/gold. Đây là tình huống trên slide,
-**không phải** 50.000 frame có trong repo. Phân bổ đúng 200 ở `45_sampling_plan.csv` cho bốn camera, mỗi camera có
-normal và hard slice. “Gold set” ở đây là **kế hoạch tạo** reference sau kiểm chứng, không phải teaching reference
-ADASIND hoặc nhãn bạn vừa vẽ. Nếu cần, dùng `notebooks/day11-svm360-colab.ipynb` để thử tổng phân bổ; notebook
-không làm thay phần lý do.
+**Đầu bài:** 50.000 frame từ bốn camera SVM, ngân sách chọn 200 frame để review/gold. Đây là tình huống trên slide, **không phải** 50.000 frame có trong repo. Phân bổ đúng 200 ở `45_sampling_plan.csv` cho bốn camera, mỗi camera có normal và hard slice. “Gold set” ở đây là **kế hoạch tạo** reference sau kiểm chứng, không phải teaching reference ADASIND hoặc nhãn bạn vừa vẽ. Nếu cần, dùng `notebooks/day11-svm360-colab.ipynb` để thử tổng phân bổ; notebook không làm thay phần lý do.
 
 | camera_id | Hard case cần chọn | Vì sao dễ sai | Annotation space / calibration cần giữ | Cách review trước khi gọi là gold |
 |---|---|---|---|---|
-| front | TODO | TODO | TODO | TODO |
-| rear | TODO | TODO | TODO | TODO |
-| left | TODO | TODO | TODO | TODO |
-| right | TODO | TODO | TODO | TODO |
+| front | Ngược sáng bình minh/hoàng hôn góc thấp; xe tải lớn che khuất một phần người đi bộ qua đường | Hiện tượng chói sáng (lens flare) làm mất biên dạng viền xe; occluded nặng khiến annotator lẫn lộn giữa Pedestrian và phần cản trước ô tô | Không gian ảnh fisheye 2D gốc có gắn kèm ma trận calibration nội suy góc mở (FoV) và mask vành kính `lens_border` chuẩn | 3 chuyên gia độc lập (3 independent annotators) gán nhãn mù, sau đó đối soát giao nhau (adjudication meeting) nếu IoU < 0.85 hoặc class không trùng |
+| rear | Ban đêm trời mưa, đèn xe phía sau rọi lóa vào ống kính bị đọng giọt nước và chướng ngại vật thấp sát cản sau | Khúc xạ qua giọt nước làm biến dạng hình học vật thể; bụi bẩn mờ làm mất chi tiết ranh giới mặt đất khiến box bị vẽ tụt xuống dưới mặt phẳng đường | Ảnh fisheye gốc có đo khoảng cách mặt phẳng đường (ground plane height) và độ cao đặt camera sau | Double review bởi 2 Senior QA; kiểm tra đối chiếu frame trước/sau trong chuỗi video (temporal tracking consistency) để xác định đúng vị trí vật thể khi xe lùi |
+| left | Xe máy hoặc xe đạp điện vượt tốc độ cao đi qua vùng chồng mí (seam) giữa camera trước và camera gương trái | Vật thể bị cắt làm hai nửa ở 2 camera khác nhau; độ biến dạng ở mép ngoài cùng camera gương trái là cực đại (vùng edge cong vẹo) | Cần đồng bộ timestamp phần cứng (<5ms) và ma trận extrinsic camera-to-camera để chiếu kiểm tra trong không gian Top-Down BEV (Bird's Eye View) | Review song song cả hai camera front và left trên giao diện cross-camera; áp dụng rule seam policy trước khi xác nhận gán nhãn |
+| right | Người đi bộ dắt xe đạp bước từ vỉa hè có bóng râm cây cối xuống lòng đường sát thân xe ego | Dễ vi phạm quy tắc Rider vs Pedestrian theo R03 (người dắt xe phải tách 2 box Pedestrian + Bike riêng biệt); bóng râm tán cây gây nhầm lẫn ranh giới box | Ảnh fisheye gốc có phân định rõ vùng polygon `ego_body` của gương và sườn xe bên phải | Kiểm tra checklist thủ công 100% đối với quy tắc Rider R03 và ranh giới không đè lên `ego_body` |
 
-- Khi nào cần refresh gold set (đổi camera, calibration hoặc rule): TODO
-- Một ca seam/cross-camera cần policy và evidence trước khi ghép hai box: TODO
-- Vì sao peer agreement hoặc quality report trên ảnh một camera chưa chứng minh gold set đúng cho cả bốn camera: TODO
+- **Khi nào cần refresh gold set (đổi camera, calibration hoặc rule):**
+  1. Khi thay đổi phần cứng quang học (thay đổi loại thấu kính, cảm biến, tiêu cự, độ phân giải hoặc góc nghiêng lắp đặt camera trên xe).
+  2. Khi thực hiện cân chỉnh lại hệ thống (re-calibration ma trận intrinsic hoặc extrinsic chuyển đổi giữa các camera).
+  3. Khi cập nhật phiên bản quy tắc gán nhãn (ví dụ ban hành Guideline Patch R04b hoặc R12 nâng version từ `v1.0.0` lên `v1.1.0`).
+  4. Định kỳ theo chu kỳ phát triển mô hình (ví dụ mỗi quý một lần) khi hệ thống tiếp nhận miền dữ liệu mới (mùa mưa, ban đêm, thị trường giao thông mới).
+
+- **Một ca seam/cross-camera cần policy và evidence trước khi ghép hai box:**
+  * *Tình huống:* Một xe máy di chuyển ở góc phần tư phía trước bên trái xe ego, xuất hiện đồng thời một nửa trên camera Front và một nửa trên camera Left tại vùng ghép mí (seam).
+  * *Bằng chứng (evidence) bắt buộc:* (1) Timestamp chụp giữa 2 camera phải đồng bộ phần cứng ở mức mili-giây ($\Delta t \le 5\text{ ms}$); (2) Ma trận hiệu chuẩn extrinsic giữa 2 camera còn hiệu lực; (3) Khi chiếu (project) 2 box 2D vào không gian mặt đất 3D (BEV plane), hai đối tượng phải cùng tọa độ vị trí và vận tốc ($3\text{D IoU} \ge 0.5$).
+  * *Chính sách (policy):* Ở tầng gán nhãn 2D trên từng camera, annotator giữ nguyên 2 box độc lập trên mỗi ảnh và bật cờ `truncated=true` tại viền ảnh. Tuyệt đối không tự ý dùng tay gộp 2 box thành một hoặc tự gán cùng track ID trên 2D khi chưa có kiểm chứng hình học 3D. Việc hợp nhất danh tính chỉ được bộ giải thuật Tracking/Fusion ở tầng BEV 3D xử lý tự động sau khi thỏa mãn đầy đủ bằng chứng đồng bộ trên.
+
+- **Vì sao peer agreement hoặc quality report trên ảnh một camera chưa chứng minh gold set đúng cho cả bốn camera:**
+  Độ đồng thuận giữa hai người gán nhãn (peer agreement) hoặc báo cáo chất lượng `local-quality` trên một camera đơn lẻ chỉ đo lường tính nhất quán nội tại (internal consistency) của hai người đối với một góc nhìn cụ thể. Bốn camera SVM có các góc đặt, độ méo quang học, khoảng cách mặt đất và hiện tượng che khuất hoàn toàn khác nhau (camera bên hông có độ méo mép gương cực lớn và vùng chồng mí phức tạp). Một bộ nhãn đạt độ khớp cao trên camera trước vẫn có thể sai sót nghiêm trọng về tính nhất quán liên camera (cross-camera consistency), lệch góc chiếu khi chuyển sang góc nhìn toàn cảnh Bird's Eye View (BEV), hoặc vi phạm vùng mù quanh thân xe. Gold set cho hệ thống 360° SVM bắt buộc phải được kiểm định đồng thời về cả độ chính xác từng camera và tính tương thích hình học toàn thể quanh xe.

@@ -1,9 +1,9 @@
 camera_id,slice_type,frames,risk,rationale
-front,normal,,TODO,TODO
-front,hard,,TODO,TODO
-rear,normal,,TODO,TODO
-rear,hard,,TODO,TODO
-left,normal,,TODO,TODO
-left,hard,,TODO,TODO
-right,normal,,TODO,TODO
-right,hard,,TODO,TODO
+front,normal,35,Phương tiện cắt ngang phía trước và chói nắng ngược chiều,Camera trước chịu trách nhiệm chính về phanh khẩn cấp tự động (AEB) và kiểm soát hành trình thích ứng (ACC); cần cỡ mẫu lớn để kiểm tra baseline độ chính xác
+front,hard,25,Ngược sáng cực mạnh từ mặt trời lặn hoặc đèn pha ban đêm và đối tượng bị khuất sau xe lớn,Tập trung vào các ca biên nguy hiểm cao khi xe chuyển làn cắt đầu đột ngột ở dải tốc độ cao
+rear,normal,30,Giao thông tiếp cận phía sau và xe máy bám đuôi gần,Kiểm tra khả năng phát hiện vật cản khi lùi xe và cảnh báo phương tiện cắt ngang phía sau (RCTA)
+rear,hard,20,Bụi bẩn bám nắp cốp sau xe và bùn bắn che vành kính cùng đèn pha xe sau rọi thẳng vào cảm biến,Đánh giá khả năng chống suy giảm hiệu năng trong điều kiện camera sau bị bẩn (soiled lens) và tương phản cao
+left,normal,25,Xe vượt từ phía sau bên trái và xe máy luồn lách qua điểm mù sườn xe,Đảm bảo an toàn cảnh báo điểm mù (BSD) và hỗ trợ giữ làn đường bên trái
+left,hard,20,Vùng chồng lấn (seam) với camera trước/sau và méo hình góc rộng tại rìa gương chiếu hậu,Rà soát các lỗi phân tách vật thể ở vùng ghép mí (seam line) và biến dạng quang học cao nhất
+right,normal,25,Người đi bộ bước xuống từ vỉa hè và xe máy nhập làn từ lề đường bên phải,Kiểm soát rủi ro va chạm với các đối tượng dễ bị tổn thương (VRU) ở lề đường bên phải
+right,hard,20,Chướng ngại vật tĩnh thấp sát lề và vùng seam méo góc với camera trước/sau,Đảm bảo an toàn cho các tác vụ đỗ xe tự động sát mép đường và nhận diện vật thể phức tạp ở rìa gương phải

@@ -3,7 +3,7 @@
     {
       "file": "00_setup/doctor.txt",
       "lines": 4,
-      "sha256": "a99f063bb083f9e585f20279c18ebc1df09462f0b71b1c76bce8bad75846b83e"
+      "sha256": "51db3adb147fe01d426217f72cf50702d473665ea1e63cd89faef30fc3c82885"
     },
     {
       "file": "00_setup/mode.json",
@@ -12,13 +12,18 @@
     },
     {
       "file": "00_setup/sensor_context.md",
-      "lines": 6,
-      "sha256": "379fe3fbd84c296c1b2e37b4f023baf25425c98dd66ca0585fea1afb9f198ca6"
+      "lines": 5,
+      "sha256": "77a7a2dc14d665ea442ac8efd5a335313b8e980ed56a57a132bb7f090c62465f"
+    },
+    {
+      "file": "parking/annotations.xml",
+      "lines": 99,
+      "sha256": "c0b378f1665cb7fc99c5c50ac4cb5a521c4bde8dbb2bf5fb87a3e1120d482a4e"
     },
     {
       "file": "parking/observations.md",
-      "lines": 6,
-      "sha256": "e55c37019a4b5a2dfe5adcda7d028127e12a36c62e37b1e696c906a3eeab86a5"
+      "lines": 15,
+      "sha256": "4ad15fc2116da26372d8b072049c616a6d2b3b02dd4cf496181738a623b02b3b"
     },
     {
       "file": "p1_calib/annotations.xml",
@@ -64,9 +69,25 @@
       "sha256": "a280f33f67390db3865f9c38809d6185efa4a3c2bf614eb7e1aa15ba10d56bd4"
     },
     {
+      "file": "r1_craft/reference.txt",
+      "lines": 3,
+      "sha256": "291b6997f438a321cf0f0c110ad60f85fc116488bec3077cafa6f34a1c278626",
+      "lock_before_reveal": true
+    },
+    {
+      "file": "r1_craft/compare.md",
+      "lines": 21,
+      "sha256": "d6f53037192f08460ac286c3fe19295070562647011a67d334dd69706034cbb5"
+    },
+    {
+      "file": "r1_craft/compare.html",
+      "lines": 86,
+      "sha256": "499534acb822b3a6b9e82f738dac6844e82a34bfa1957f977beb0520af0eab88"
+    },
+    {
       "file": "r2_qa/qa_review.md",
-      "lines": 17,
-      "sha256": "be6697dfc099355888ecbade02fc40473bdf7af02aea927675ca1fd966d04131"
+      "lines": 20,
+      "sha256": "b995fd3851fef51f76935df02d1ad7f09d1088cc01109ae283235f087ee24904"
     },
     {
       "file": "r2_qa/qa_overlay.html",
@@ -74,57 +95,101 @@
       "sha256": "8a8ac8b5144943c367c77248ae291d1b4291fbe31d9652f7d5f97cb6900ec97f"
     },
     {
-      "file": "findings.csv",
+      "file": "r3_diag/local_quality.md",
+      "lines": 47,
+      "sha256": "9196218ebf6ab18c2a7782dc506155e7eb8aa3040a41b54efe2abadf684ff788"
+    },
+    {
+      "file": "r3_diag/local_quality.json",
+      "lines": 233,
+      "sha256": "7e8323b34d6f760e11aeef38c54f27d47e1a8911290d17041f2de5624d8fa3e8"
+    },
+    {
+      "file": "r3_diag/local_quality_conflicts.csv",
+      "lines": 8,
+      "sha256": "fbce84f980101fea3faf7605394ff7f6b74e4598e9d9dbf0c97903e93158f874"
+    },
+    {
+      "file": "r3_diag/local_quality_confusion.csv",
+      "lines": 6,
+      "sha256": "a30b31364e38cfba7a7bae385411ab76b1b77f2b3f6c30140f573f3a5ab411dd"
+    },
+    {
+      "file": "r3_diag/model_compare.md",
+      "lines": 46,
+      "sha256": "8b8419314dfa7b4fc64e46675ecc2fb280bc88a2ac8b704e59d3381539f65e53"
+    },
+    {
+      "file": "r3_diag/model_compare.html",
+      "lines": 124,
+      "sha256": "d0dbf632942658741338692cc4bd90930cb0ee19a08c74b50bd18e996197f583"
+    },
+    {
+      "file": "r3_diag/zone_table.md",
+      "lines": 20,
+      "sha256": "69fab2efe86923bfb5494a98e640fc3352cc546395fd8c277ada277019ab757c"
+    },
+    {
+      "file": "rework/annotations-v2.xml",
+      "lines": 364,
+      "sha256": "52dc4e2c7fcfebf5a5be503ffa1b16d71b61ff40045b5c4bc0ffe70c1904d37b"
+    },
+    {
+      "file": "rework/lock2.txt",
+      "lines": 9,
+      "sha256": "03376f8767c74bdfcb6c107d7c2999dda092cd47f70733160d8f3b03d69f2781",
+      "locked_at": "2026-09-29T17:33:33+07:00"
+    },
+    {
+      "file": "rework/delta.md",
       "lines": 14,
-      "sha256": "787fb35037075b049fedd63757238ad7489b311847b6bc0b8466874751777736"
+      "sha256": "00061a0f0de9b5e5cd1233934430bf10276d7cf350fdee7f43f1044384879609"
+    },
+    {
+      "file": "findings.csv",
+      "lines": 45,
+      "sha256": "e21007490701074f2cd0896f39b41eda9f33b7c5163f6548eead1f7a9f871df9"
+    },
+    {
+      "file": "10_error_card.md",
+      "lines": 45,
+      "sha256": "1e9989fec19af0d82836933d001d1cf9861c69939fdd3ce495491922df7f06fe"
+    },
+    {
+      "file": "20_guideline_patch.md",
+      "lines": 7,
+      "sha256": "ef1fdaafe2259b5d3b57c84ac3b6ee1014c9efcbe85907a2e7aa9647fed21808"
+    },
+    {
+      "file": "30_escalation_ticket.md",
+      "lines": 9,
+      "sha256": "023b6d163c03a0d55a72d5158f12a76ef313375cd60891ec7a720ec187d41775"
     },
     {
       "file": "40_decision_log.csv",
-      "lines": 1,
-      "sha256": "b08969b09d2c53145049c164142f6d8790d023a7e35a3c3e47eb6836408869f5"
+      "lines": 6,
+      "sha256": "f64098ad94ac80f08609e9f3384d2871165b5f8592f7dabc3a6ec1c446dfa004"
+    },
+    {
+      "file": "45_review_plan.md",
+      "lines": 17,
+      "sha256": "724f19c4ae67959bd0bb4a3ed1bbbbf2f18326c7dc05e33729c85430b3579b73"
     },
     {
       "file": "45_sampling_plan.csv",
       "lines": 9,
-      "sha256": "3ce17ef3e9664e95a91f25f6f8ecdc0b7cfb09385ffdc6be8b194a7634f81cca"
+      "sha256": "cd71b2454629d559440a9059439278688cc19a636916806e7f92b354483a6bee"
     },
     {
       "file": "46_gold_set_plan.md",
-      "lines": 18,
-      "sha256": "494b2cd3c219a83166c1202296574adfcea3ca8e6b844a1c669e813e9df8c30f"
+      "lines": 24,
+      "sha256": "2915d07b8881538c85be84f1d9790e484872a002c7f084c187f9682cf63980f2"
+    },
+    {
+      "file": "50_exit_ticket.md",
+      "lines": 21,
+      "sha256": "742488717f8f79df9430731e9515218ebdb616295f8586eb877dc56219c27da0"
     }
   ],
-  "failed_gates": [
-    "findings cần ≥4 cell khác na",
-    "findings cần ≥8 dòng có M trong cell",
-    "findings cần ≥3 dòng vai r1_craft",
-    "findings cần ≥3 dòng vai r3_diag",
-    "decision log cần ≥4 entry và ≥1 escalated",
-    "45_sampling_plan.csv chưa phải bảng phân bổ hợp lệ",
-    "Còn TODO trong 00_setup/sensor_context.md",
-    "Thiếu file parking/annotations.xml",
-    "Còn TODO trong parking/observations.md",
-    "Thiếu file r1_craft/reference.txt",
-    "Thiếu file r1_craft/compare.md",
-    "Thiếu file r1_craft/compare.html",
-    "Thiếu file r3_diag/local_quality.md",
-    "Thiếu file r3_diag/local_quality.json",
-    "Thiếu file r3_diag/local_quality_conflicts.csv",
-    "Thiếu file r3_diag/local_quality_confusion.csv",
-    "Thiếu file r3_diag/model_compare.md",
-    "Thiếu file r3_diag/model_compare.html",
-    "Thiếu file r3_diag/zone_table.md (chạy python3 lab11.py model)",
-    "Thiếu file rework/annotations-v2.xml",
-    "Thiếu file rework/lock2.txt",
-    "Thiếu file rework/delta.md",
-    "Thiếu file 10_error_card.md (chạy python3 lab11.py card)",
-    "Thiếu file 20_guideline_patch.md (mẫu tự tạo sau python3 lab11.py reference r1_craft)",
-    "Thiếu file 30_escalation_ticket.md (mẫu tự tạo sau python3 lab11.py reference r1_craft)",
-    "Thiếu file 45_review_plan.md (mẫu tự tạo sau python3 lab11.py reference r1_craft)",
-    "Còn TODO trong 45_sampling_plan.csv",
-    "Còn TODO trong 46_gold_set_plan.md",
-    "Thiếu file 50_exit_ticket.md (mẫu tự tạo sau python3 lab11.py reference r1_craft)",
-    "doctor còn lỗi; chạy python3 lab11.py doctor lại sau khi sửa môi trường",
-    "screenshots cần ≥2 ảnh"
-  ]
+  "failed_gates": []
 }

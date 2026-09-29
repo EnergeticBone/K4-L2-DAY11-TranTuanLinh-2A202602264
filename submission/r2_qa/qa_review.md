@@ -1,6 +1,9 @@
 # QA review · B2-edge
-
+Reviewer: Trần An Hạ
+Annotator: Nguyễn Hùng Minh
+Slice: B2-edge
 Mã khóa: 2F90-6D77
+
 
 Cold-review fallback: đã chờ hơn 5 phút nhưng không có export khóa B2-center của Ha trong workspace; tự soát lại bản khóa B2-edge theo luật, không mở reference/model.
 

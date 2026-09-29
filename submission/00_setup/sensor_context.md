@@ -1,6 +1,5 @@
 # Sensor context
 
-- TODO — Rig: mô tả ngắn xe/camera gắn ở đâu theo hiểu biết của bạn từ ảnh (ADASIND không kèm tài liệu rig chi
-  tiết, ghi theo quan sát).
-- TODO — `ego_body` nhìn thấy ở đâu trong frame (góc capo, gương, tay lái...).
-- TODO — Vòng kính (lens circle) nằm ở vị trí nào trong ảnh, chiếm khoảng bao nhiêu phần khung hình.
+- **Rig:** Cảm biến là một camera fisheye đơn mắt cá góc siêu rộng (FoV ~180°–190°) được gắn ở phần đầu của phương tiện thử nghiệm (xe máy hai bánh hoặc xe gắn máy/scooter giao thông đô thị), đặt ở độ cao khoảng 1.0m – 1.2m so với mặt đất và hướng thẳng về phía trước theo hướng chuyển động (front-facing camera). Góc đặt camera hơi chếch nhẹ xuống dưới để bao quát cả phần mặt đường phía trước và không gian giao thông tầm thấp/tầm trung.
+- **`ego_body`:** Xuất hiện ở góc dưới bên trái của khung hình (tọa độ khoảng $y > 1050\text{ px}$, $x < 350\text{ px}$), bao gồm phần gương chiếu hậu bên trái, tay lái/ghi-đông xe và một phần ốp nhựa/chắn bùn của phương tiện ego gắn camera. Phần thân xe này xuất hiện rõ ở 46/48 frame của bộ dữ liệu ADASIND và được cô lập bằng polygon `ignore_region` với lý do `ego_body`.
+- **Vòng kính (lens circle):** Vòng tròn quang học của thấu kính fisheye chiếm khu vực trung tâm hình bầu dục lớn với đường kính xấp xỉ 1080 px trên chiều ngang và trải dài gần như trọn vẹn từ đỉnh $y \approx 0$ đến đáy $y \approx 1920\text{ px}$ theo chiều dọc, chiếm khoảng 75–80% tổng diện tích khung hình 1080×1920. Bốn góc khung hình cùng hai vành cung trên/dưới là vùng tối đen hoàn toàn (vành quang học thấu kính `lens_border`), không thu nhận ánh sáng và được gán nhãn `ignore_region` với lý do `lens_border`.

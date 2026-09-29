@@ -1,0 +1,21 @@
+# Exit ticket
+
+Đọc `docs/10-svm360-reading-vi.md` trước khi trả lời câu 1–2. Các câu về zone, `why`, rework, parking và sampling đã nằm trong file tương ứng nên không hỏi lại ở đây.
+
+1. **Một vật ở vùng seam giữa hai camera thật xuất hiện với hai box khác nhau: đó là lỗi `DUPLICATE` hay cần một quy tắc riêng? Vì sao?**
+   - Đây **không** phải lỗi `DUPLICATE`, mà bắt buộc phải có một **quy tắc riêng (Cross-camera Seam Policy)**.
+   - *Vì sao:* Vùng seam (chồng mí) là khu vực không gian 3D được bao phủ đồng thời bởi hai cảm biến camera vật lý độc lập (ví dụ camera trước Front và camera hông Left). Trong không gian ảnh 2D của từng camera, vật thể xuất hiện với góc chiếu, tỷ lệ phối cảnh, độ méo quang học và ranh giới cắt cúp (`truncated`) hoàn toàn khác nhau. Mỗi mô hình perception 2D của từng camera cần một box riêng biệt để nhận diện đúng phần vật thể nhìn thấy trên ảnh gốc đó. Lỗi `DUPLICATE` chỉ áp dụng khi trên *cùng một camera* xuất hiện hai box đè lên cùng một vật thể. Ở vùng seam, việc tồn tại 2 box 2D trên 2 camera là hoàn toàn hợp lệ; bài toán hợp nhất danh tính là nhiệm vụ của tầng sensor fusion đa camera (BEV/3D tracking) chứ không phải lỗi của người gán nhãn 2D.
+
+2. **Một vật đi qua nhiều frame trên cùng camera: khi nào giữ cùng track ID, khi nào thêm keyframe hoặc trạng thái Outside? Nêu bằng chứng sẽ cần trước khi nối track qua hai camera.**
+   - *Giữ cùng track ID:* Khi vật thể di chuyển liên tục trong tầm nhìn của cùng một camera, hoặc bị che khuất tạm thời (`occluded`) trong thời gian rất ngắn (dưới 1–2 giây) mà quỹ đạo vận tốc, hướng di chuyển và đặc trưng ngoại quan có thể suy luận liên tục được.
+   - *Thêm keyframe:* Khi vật thể thay đổi trạng thái hình học hoặc diện mạo đáng kể (ví dụ xe chuyển hướng từ nhìn đuôi sang nhìn sườn, thay đổi kích thước box đột ngột do tiến lại gần, hoặc bắt đầu bị che khuất).
+   - *Thêm trạng thái Outside:* Khi vật thể hoàn toàn đi ra ngoài góc mở (FoV) của camera, bị che khuất vĩnh viễn sau xe lớn, hoặc đi vào vùng mù sau thân xe ego.
+   - *Bằng chứng bắt buộc trước khi nối track qua hai camera:* (1) Đồng bộ timestamp phần cứng ở cấp mili-giây ($\Delta t \le 5\text{ ms}$); (2) Ma trận hiệu chuẩn extrinsic/intrinsic giữa hai camera; (3) Chiếu kiểm tra trong không gian Top-Down BEV: vị trí 3D và vector vận tốc của track ở camera xuất phát phải tiếp tuyến mượt mà và liên tục với track ở camera tiếp nhận; (4) Tính tương đồng về đặc trưng nhận diện (Re-ID: màu sắc, chiều dài vật lý, class).
+
+3. **Nhìn lại cả buổi: một chỗ bạn tin nhãn mình đúng nhưng reference hoặc người soát nghĩ khác (dẫn frame/`object_ref`), bạn đã xử lý thế nào, và nếu làm lại slice này bạn sẽ đổi gì trong cách làm? (Đóng góp của ba vai A / B / C):**
+   - *Ca bất đồng điển hình:* Ca `L4` tại frame `adasind_102750.jpg` (phân loại nhãn `ThreeWheeler` vs `Truck`) và ca thuộc tính `occluded` vs `truncated` trên xe hai bánh `L4` tại frame `adasind_069450.jpg`.
+   - *Đóng góp và vai trò của ba vị trí:*
+     - **Vai A (Annotator — Nguyễn Hùng Minh):** Là người trực tiếp gán nhãn ở P2, giải thích lý do vẽ class `ThreeWheeler` do đầu xe nằm ở vùng méo rìa fisheye sát viền kính nên cabin bị nén ngắn lại, tạo cảm giác giống xe ba bánh auto-rickshaw.
+     - **Vai B (QA Reviewer — Trần An Hạ):** Thông qua rà soát độc lập ở P3 bằng luật (cold review), phát hiện bất đồng class nghiêm trọng và trích dẫn chuẩn xác **Rule R04** (xe tải nhỏ có thùng chở hàng phải gán `Truck`) cùng **Rule R05** (sự độc lập giữa cờ CVAT occluded và thuộc tính truncated cắt biên).
+     - **Vai C (Diagnostician / Lead — Trần Tuấn Linh):** Mở ảnh gốc, đối chiếu overlay 3 nguồn (L vs R vs M), kiểm tra chỉ số hình học IoU = 0.873 và đưa ra kết luận kỹ thuật khách quan: chiếc xe có 4 bánh với thùng chở hàng phía sau rõ rệt, thống nhất quyết định phân xử là `rework` (sửa thành `Truck`) và lập phiếu `escalate` đề xuất Guideline Patch R04b.
+   - *Bài học kinh nghiệm nếu làm lại:* Tôi sẽ áp dụng checklist 9 mục cẩn thận hơn trước khi lock; tại các vùng méo cong rìa kính ($r/R \ge 0.6$), tôi sẽ phóng to để kiểm tra kết cấu thùng hàng và số lượng trục bánh xe thay vì chỉ nhìn vào đầu cabin; đồng thời phân định dứt khoát giữa bị cắt bởi biên ảnh (`truncated=true`) với bị vật thể khác che (`occluded=true`) để không bị lệch thuộc tính.

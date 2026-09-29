@@ -1,0 +1,9 @@
+round: rework
+slice: B2-edge
+sha256: 52dc4e2c7fcfebf5a5be503ffa1b16d71b61ff40045b5c4bc0ffe70c1904d37b
+code: 52DC-4E2C
+locked_at: 2026-09-29T17:33:33+07:00
+shapes: box=20, polygon=6
+prefill_kept: 14
+prefill_edited: 1
+new: 5

@@ -12,3 +12,34 @@ r2_qa,B2-edge,adasind_082170.jpg,L4,L_only,ATTRIBUTE,,,,R05,CVAT occluded=1; att
 r2_qa,B2-edge,adasind_082170.jpg,L5,L_only,ATTRIBUTE,,,,R05,CVAT occluded=1; attribute occluded=false,,v1.0.0,Đối chiếu ảnh theo R05
 r2_qa,B2-edge,adasind_082170.jpg,L6,L_only,ATTRIBUTE,,,,R05,CVAT occluded=1; attribute occluded=false,,v1.0.0,Đối chiếu ảnh theo R05
 r2_qa,B2-edge,adasind_082170.jpg,L7,L_only,ATTRIBUTE,,,,R05,CVAT occluded=1; attribute occluded=false,,v1.0.0,Đối chiếu ảnh theo R05
+r1_craft,B2-edge,adasind_069450.jpg,L4,na,IGNORE_SCOPE,,,,,,,,
+r1_craft,B2-edge,adasind_082170.jpg,L2,na,IGNORE_SCOPE,,,,,,,,
+r1_craft,B2-edge,adasind_082170.jpg,R5,na,MISSING,,,,,,,,
+r1_craft,B2-edge,adasind_102750.jpg,L2,na,SPURIOUS,,,,,,,,
+r1_craft,B2-edge,adasind_102750.jpg,L4+R2,na,WRONG_CLASS,,,,,,,,
+r1_craft,B2-edge,adasind_102750.jpg,R5,na,MISSING,,,,,,,,
+r3_diag,B2-edge,adasind_069450.jpg,L2+R1,LR_noM,MISSING,E4_model_domain,P1,ai_team,R01,L và R khớp nhau; Model bỏ sót ở vùng méo fisheye edge,keep_with_reason,v1.0.0,Model domain shift ở rìa fisheye
+r3_diag,B2-edge,adasind_069450.jpg,L5+R2,LR_noM,MISSING,E4_model_domain,P1,ai_team,R01,L và R khớp nhau; Model bỏ sót ở vùng mid,keep_with_reason,v1.0.0,Model domain shift không nhận diện được đối tượng mid
+r3_diag,B2-edge,adasind_069450.jpg,M5,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở vùng edge; L và R không có đối tượng,keep_with_reason,v1.0.0,Model ảo giác/FP do méo quang học và texture nền
+r3_diag,B2-edge,adasind_069450.jpg,M7,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở vùng mid; L và R không có đối tượng,keep_with_reason,v1.0.0,Model ảo giác/FP do vệt sáng hoặc vật thể nhỏ ngoài scope
+r3_diag,B2-edge,adasind_082170.jpg,L6+R7,LR_noM,MISSING,E4_model_domain,P1,ai_team,R01,L và R khớp nhau; Model bỏ sót ở vùng mid,keep_with_reason,v1.0.0,Model bỏ sót xe in-scope do góc nhìn nghiêng
+r3_diag,B2-edge,adasind_082170.jpg,L3+R1,LR_noM,MISSING,E4_model_domain,P1,ai_team,R01,L và R khớp nhau; Model bỏ sót ở vùng mid,keep_with_reason,v1.0.0,Model bỏ sót đối tượng ở vùng giữa
+r3_diag,B2-edge,adasind_082170.jpg,L8+R2,LR_noM,MISSING,E4_model_domain,P1,ai_team,R01,L và R khớp nhau; Model bỏ sót ở center,keep_with_reason,v1.0.0,Model bỏ sót xe ở vùng trung tâm
+r3_diag,B2-edge,adasind_082170.jpg,L5+R4,LR_noM,MISSING,E4_model_domain,P1,ai_team,R01,L và R khớp nhau; Model bỏ sót ở edge,keep_with_reason,v1.0.0,Model domain shift không bắt được xe ở biên cong
+r3_diag,B2-edge,adasind_082170.jpg,R5,R_only,MISSING,E1_annotator_error,P1,annotator,R01,Reference có box R5 Bike ở vùng edge; L và M đều thiếu,rework,v1.0.0,Annotator bỏ sót xe Bike in-scope ở vùng rìa; cần rework
+r3_diag,B2-edge,adasind_082170.jpg,M2,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở vùng mid; L và R không có đối tượng,keep_with_reason,v1.0.0,Model ảo giác/FP nhận nhầm nền đường thành đối tượng
+r3_diag,B2-edge,adasind_082170.jpg,M5,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở vùng mid; L và R không có đối tượng,keep_with_reason,v1.0.0,Model ảo giác do bóng râm hoặc vệt sơn
+r3_diag,B2-edge,adasind_082170.jpg,M6,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở center; L và R không có đối tượng,keep_with_reason,v1.0.0,Model phát hiện sai đối tượng ở trung tâm
+r3_diag,B2-edge,adasind_082170.jpg,M7,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở center; L và R không có đối tượng,keep_with_reason,v1.0.0,Model phát hiện sai chi tiết bối cảnh
+r3_diag,B2-edge,adasind_082170.jpg,M9,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở vùng mid; L và R không có đối tượng,keep_with_reason,v1.0.0,Model ảo giác/FP ở vùng trung gian
+r3_diag,B2-edge,adasind_102750.jpg,L5+R3,LR_noM,MISSING,E4_model_domain,P1,ai_team,R01,L và R khớp nhau; Model bỏ sót ở vùng mid,keep_with_reason,v1.0.0,Model bỏ sót xe in-scope do góc nhìn fisheye
+r3_diag,B2-edge,adasind_102750.jpg,L3+R4,LR_noM,MISSING,E4_model_domain,P1,ai_team,R01,L và R khớp nhau; Model bỏ sót ở edge,keep_with_reason,v1.0.0,Model domain shift ở rìa cong fisheye
+r3_diag,B2-edge,adasind_102750.jpg,L2,L_only,SPURIOUS,E1_annotator_error,P1,annotator,R01,Chỉ L vẽ ở center; R và M không có đối tượng hợp lệ,rework,v1.0.0,Vẽ thừa box không đạt chuẩn in-scope; cần xóa ở rework
+r3_diag,B2-edge,adasind_102750.jpg,L4,L_only,SPURIOUS,E1_annotator_error,P1,annotator,R04,L vẽ ThreeWheeler nhưng Reference là Truck (IoU 0.873),rework,v1.0.0,Nhầm class ThreeWheeler thay vì Truck; cần sửa ở rework
+r3_diag,B2-edge,adasind_102750.jpg,R2+M2,RM_noL,MISSING,E1_annotator_error,P1,annotator,R04,R và M gán Truck; L gán nhầm ThreeWheeler (L4),rework,v1.0.0,Sót nhãn Truck tương ứng với R2 do nhầm class; cần sửa lại
+r3_diag,B2-edge,adasind_102750.jpg,R5+M8,RM_noL,MISSING,E1_annotator_error,P1,annotator,R01,R và M đều phát hiện Truck ở center; L bỏ sót hoàn toàn,rework,v1.0.0,Bỏ sót xe Truck in-scope ở center; cần bổ sung ở rework
+r3_diag,B2-edge,adasind_102750.jpg,M3,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở vùng mid; L và R không có đối tượng,keep_with_reason,v1.0.0,Model ảo giác/FP do vật cản tĩnh hoặc méo rìa
+r3_diag,B2-edge,adasind_102750.jpg,M4,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở vùng mid; L và R không có đối tượng,keep_with_reason,v1.0.0,Model ảo giác đối tượng ở vùng trung gian
+r3_diag,B2-edge,adasind_102750.jpg,M5,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở vùng mid; L và R không có đối tượng,keep_with_reason,v1.0.0,Model phát hiện sai texture hoặc bóng râm
+r3_diag,B2-edge,adasind_102750.jpg,M6,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở center; L và R không có đối tượng,keep_with_reason,v1.0.0,Model phát hiện sai đối tượng ở trung tâm
+r3_diag,B2-edge,adasind_102750.jpg,M7,M_only,SPURIOUS,E4_model_domain,P1,ai_team,R02,Chỉ Model vẽ ở vùng mid; L và R không có đối tượng,keep_with_reason,v1.0.0,Model ảo giác ở vùng mid do domain shift
