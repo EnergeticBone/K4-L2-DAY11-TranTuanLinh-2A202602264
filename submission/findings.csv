@@ -5,3 +5,10 @@ calib,C0,adasind_019560.jpg,L5,na,SPURIOUS,,,,,,,,
 calib,C0,adasind_019560.jpg,L6+R3,na,WRONG_CLASS,,,,,,,,
 calib,C0,adasind_019560.jpg,R5,na,MISSING,,,,,,,,
 calib,C0,adasind_019560.jpg,R6,na,MISSING,,,,,,,,
+r2_qa,B2-edge,adasind_069450.jpg,L4,L_only,ATTRIBUTE,,,,R05,CVAT occluded=1; attribute occluded=false,,v1.0.0,Đối chiếu ảnh theo R05
+r2_qa,B2-edge,adasind_082170.jpg,L1,L_only,ATTRIBUTE,,,,R05,CVAT occluded=1; attribute occluded=false,,v1.0.0,Đối chiếu ảnh theo R05
+r2_qa,B2-edge,adasind_082170.jpg,L2,L_only,ATTRIBUTE,,,,R05,CVAT occluded=1; attribute occluded=false,,v1.0.0,Phân biệt crop mép với bị che
+r2_qa,B2-edge,adasind_082170.jpg,L4,L_only,ATTRIBUTE,,,,R05,CVAT occluded=1; attribute occluded=false,,v1.0.0,Đối chiếu ảnh theo R05
+r2_qa,B2-edge,adasind_082170.jpg,L5,L_only,ATTRIBUTE,,,,R05,CVAT occluded=1; attribute occluded=false,,v1.0.0,Đối chiếu ảnh theo R05
+r2_qa,B2-edge,adasind_082170.jpg,L6,L_only,ATTRIBUTE,,,,R05,CVAT occluded=1; attribute occluded=false,,v1.0.0,Đối chiếu ảnh theo R05
+r2_qa,B2-edge,adasind_082170.jpg,L7,L_only,ATTRIBUTE,,,,R05,CVAT occluded=1; attribute occluded=false,,v1.0.0,Đối chiếu ảnh theo R05

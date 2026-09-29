@@ -7,5 +7,21 @@
     "adasind_069450.jpg:2",
     "adasind_069450.jpg:3"
   ],
-  "slice": "B2-edge"
+  "slice": "B2-edge",
+  "members": [
+    "Ha",
+    "Linh",
+    "Minh"
+  ],
+  "assignments": {
+    "Ha": "B2-center",
+    "Linh": "B3-mid",
+    "Minh": "B2-edge"
+  },
+  "self": "Minh",
+  "qa_fallback": {
+    "status": "cold_review",
+    "reason": "No peer locked export for Ha/B2-center was available after more than 5 minutes; cold-reviewed own locked B2-edge export."
+  },
+  "degrade": []
 }

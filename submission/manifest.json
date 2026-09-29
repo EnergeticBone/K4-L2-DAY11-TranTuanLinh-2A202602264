@@ -1,0 +1,130 @@
+{
+  "files": [
+    {
+      "file": "00_setup/doctor.txt",
+      "lines": 4,
+      "sha256": "a99f063bb083f9e585f20279c18ebc1df09462f0b71b1c76bce8bad75846b83e"
+    },
+    {
+      "file": "00_setup/mode.json",
+      "lines": 27,
+      "sha256": "d45d776cf1cc40b513467ca1e8b8c3e223a5bf646da03643843d19f4d7393ad6"
+    },
+    {
+      "file": "00_setup/sensor_context.md",
+      "lines": 6,
+      "sha256": "379fe3fbd84c296c1b2e37b4f023baf25425c98dd66ca0585fea1afb9f198ca6"
+    },
+    {
+      "file": "parking/observations.md",
+      "lines": 6,
+      "sha256": "e55c37019a4b5a2dfe5adcda7d028127e12a36c62e37b1e696c906a3eeab86a5"
+    },
+    {
+      "file": "p1_calib/annotations.xml",
+      "lines": 282,
+      "sha256": "32f43b75f35251464bc2f271cf72020962779ec48aadac8a0c36a72150ef4a26"
+    },
+    {
+      "file": "p1_calib/lock.txt",
+      "lines": 9,
+      "sha256": "a6e5d05fd175f65793801ef452ea765cb45cd3cf36bfb687c8d0466501167c07",
+      "locked_at": "2026-09-29T11:47:51+07:00"
+    },
+    {
+      "file": "p1_calib/reference.txt",
+      "lines": 3,
+      "sha256": "939375ed841b960ede57f90603ca1b48b3f4517085ecbdaf61be7be744de3bb5",
+      "lock_before_reveal": true
+    },
+    {
+      "file": "p1_calib/compare.md",
+      "lines": 19,
+      "sha256": "e64a56fc3f97b5313241ac1dce4c7258b5802891fdab7fefc0b406b9bd97ea8a"
+    },
+    {
+      "file": "p1_calib/compare.html",
+      "lines": 30,
+      "sha256": "662e287592bbeff1884df7cbaea653a1e8ff5710b6f00963d677f9d8cac10e44"
+    },
+    {
+      "file": "r1_craft/annotations.xml",
+      "lines": 359,
+      "sha256": "2f906d771cb1514656c43aa5e1851f62dc58ee8db3a73308851cd7e4cd9a1814"
+    },
+    {
+      "file": "r1_craft/lock.txt",
+      "lines": 9,
+      "sha256": "75f6e56d0192c12466579ab94e28a04e66953f6367a6cb91ee2ea7c96bf04a71",
+      "locked_at": "2026-09-29T12:38:31+07:00"
+    },
+    {
+      "file": "r1_craft/selfqc.md",
+      "lines": 16,
+      "sha256": "a280f33f67390db3865f9c38809d6185efa4a3c2bf614eb7e1aa15ba10d56bd4"
+    },
+    {
+      "file": "r2_qa/qa_review.md",
+      "lines": 17,
+      "sha256": "be6697dfc099355888ecbade02fc40473bdf7af02aea927675ca1fd966d04131"
+    },
+    {
+      "file": "r2_qa/qa_overlay.html",
+      "lines": 50,
+      "sha256": "8a8ac8b5144943c367c77248ae291d1b4291fbe31d9652f7d5f97cb6900ec97f"
+    },
+    {
+      "file": "findings.csv",
+      "lines": 14,
+      "sha256": "787fb35037075b049fedd63757238ad7489b311847b6bc0b8466874751777736"
+    },
+    {
+      "file": "40_decision_log.csv",
+      "lines": 1,
+      "sha256": "b08969b09d2c53145049c164142f6d8790d023a7e35a3c3e47eb6836408869f5"
+    },
+    {
+      "file": "45_sampling_plan.csv",
+      "lines": 9,
+      "sha256": "3ce17ef3e9664e95a91f25f6f8ecdc0b7cfb09385ffdc6be8b194a7634f81cca"
+    },
+    {
+      "file": "46_gold_set_plan.md",
+      "lines": 18,
+      "sha256": "494b2cd3c219a83166c1202296574adfcea3ca8e6b844a1c669e813e9df8c30f"
+    }
+  ],
+  "failed_gates": [
+    "findings cần ≥4 cell khác na",
+    "findings cần ≥8 dòng có M trong cell",
+    "findings cần ≥3 dòng vai r1_craft",
+    "findings cần ≥3 dòng vai r3_diag",
+    "decision log cần ≥4 entry và ≥1 escalated",
+    "45_sampling_plan.csv chưa phải bảng phân bổ hợp lệ",
+    "Còn TODO trong 00_setup/sensor_context.md",
+    "Thiếu file parking/annotations.xml",
+    "Còn TODO trong parking/observations.md",
+    "Thiếu file r1_craft/reference.txt",
+    "Thiếu file r1_craft/compare.md",
+    "Thiếu file r1_craft/compare.html",
+    "Thiếu file r3_diag/local_quality.md",
+    "Thiếu file r3_diag/local_quality.json",
+    "Thiếu file r3_diag/local_quality_conflicts.csv",
+    "Thiếu file r3_diag/local_quality_confusion.csv",
+    "Thiếu file r3_diag/model_compare.md",
+    "Thiếu file r3_diag/model_compare.html",
+    "Thiếu file r3_diag/zone_table.md (chạy python3 lab11.py model)",
+    "Thiếu file rework/annotations-v2.xml",
+    "Thiếu file rework/lock2.txt",
+    "Thiếu file rework/delta.md",
+    "Thiếu file 10_error_card.md (chạy python3 lab11.py card)",
+    "Thiếu file 20_guideline_patch.md (mẫu tự tạo sau python3 lab11.py reference r1_craft)",
+    "Thiếu file 30_escalation_ticket.md (mẫu tự tạo sau python3 lab11.py reference r1_craft)",
+    "Thiếu file 45_review_plan.md (mẫu tự tạo sau python3 lab11.py reference r1_craft)",
+    "Còn TODO trong 45_sampling_plan.csv",
+    "Còn TODO trong 46_gold_set_plan.md",
+    "Thiếu file 50_exit_ticket.md (mẫu tự tạo sau python3 lab11.py reference r1_craft)",
+    "doctor còn lỗi; chạy python3 lab11.py doctor lại sau khi sửa môi trường",
+    "screenshots cần ≥2 ảnh"
+  ]
+}
